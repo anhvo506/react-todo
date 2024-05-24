@@ -130,12 +130,6 @@ input[type="checkbox"]:checked .todoapp_todos_left-text {
     border-radius: 3px;
     animation: message 3s;
 }
-/* @keyframes message {
-    0% { right: 100px; left: auto;}
-    30% { right: 10px;left: auto;}
-    70% { right: 100px;left: auto;}
-    100% {left: 2000px; right: auto;}
-} */
 @keyframes message {
     0% { right: 100px;}
     30% { right: 10px;}

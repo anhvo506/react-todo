@@ -1,11 +1,11 @@
-import { useState, useContext, useEffect } from "react"; // Import useContext and useEffect
+import { useState, useContext, useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { TodoContext } from "../context/TodoContext";
 
 const AddTodo = ({ showToastMessage }) => {
     const [title, setTitle] = useState('');
     const [todos, setTodos] = useContext(TodoContext);
-    const [showToast, setShowToast] = useState(false); // Thêm state để điều khiển hiển thị thông báo
+    const [showToast, setShowToast] = useState(false); 
 
     const addTodo = (e) => {
         e.preventDefault();
@@ -16,10 +16,9 @@ const AddTodo = ({ showToastMessage }) => {
         const newTodos = [...todos, { id: uuidv4(), title: title, completed: false }];
         setTodos(newTodos);
         setTitle('');
-        setShowToast(true); // Hiển thị thông báo sau khi thêm todo thành công
-        // showToastMessage('Added successfully!');
+        setShowToast(true); 
         setTimeout(() => {
-            setShowToast(false); // Ẩn thông báo sau 3 giây
+            setShowToast(false); 
         }, 3000);
     }
 
@@ -34,7 +33,7 @@ const AddTodo = ({ showToastMessage }) => {
             </div>
             <button className="todoapp_input_btn button_add" onClick={addTodo}>+</button>
             <button className="todoapp_input_btn button_edit">Edit</button>
-            {showToast && ( // Hiển thị thông báo nếu showToast là true
+            {showToast && ( 
                 <div className="container">
                     <div className="message">
                         <i className="fas fa-check-circle message_icon"></i>

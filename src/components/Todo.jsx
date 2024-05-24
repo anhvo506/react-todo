@@ -3,12 +3,12 @@ import { TodoContext } from '../context/TodoContext';
 
 const Todo = ({ id, title, completed, showToastMessage }) => {
     const [todos, setTodos] = useContext(TodoContext);
-    const [editing, setEditing] = useState(false); // Define editing state
-    const [editTitle, setEditTitle] = useState(title); // Define editTitle state
-    const [showEditToast, setShowEditToast] = useState(false); // State for edit toast
-    const [showDeleteToast, setShowDeleteToast] = useState(false); // State for delete toast
-    const [toastMessage, setToastMessage] = useState(''); // Message for toast
-    const toastContainerRef = useRef(null); // Ref for toast container
+    const [editing, setEditing] = useState(false); 
+    const [editTitle, setEditTitle] = useState(title); 
+    const [showEditToast, setShowEditToast] = useState(false); 
+    const [showDeleteToast, setShowDeleteToast] = useState(false); 
+    const [toastMessage, setToastMessage] = useState('');
+    const toastContainerRef = useRef(null); 
 
     useEffect(() => {
         // Add event listener to document for mousedown
@@ -20,7 +20,7 @@ const Todo = ({ id, title, completed, showToastMessage }) => {
     }, []);
 
     useEffect(() => {
-        // Hide toast after a certain amount of time (3000 milliseconds)
+        // Hide toast after 3s
         const timer = setTimeout(() => {
             setShowEditToast(false);
             setShowDeleteToast(false);
@@ -49,15 +49,6 @@ const Todo = ({ id, title, completed, showToastMessage }) => {
         setTodos(updatedTodos);
     };
 
-    // const deleteTodo = (e) => {
-    //     e.preventDefault();
-       
-    //     const updatedTodos = todos.filter((item) => item.id !== id);
-    //     setTodos(updatedTodos);
-    //     setToastMessage('Deleted successfully!'); // Set toast message
-    //     setShowDeleteToast(true); // Show delete toast
-    // };
-
     const deleteTodo = (e) => {
         e.preventDefault();
         setToastMessage('Deleted successfully!'); // Set toast message
@@ -69,9 +60,6 @@ const Todo = ({ id, title, completed, showToastMessage }) => {
             setTodos(updatedTodos);
         }, 3000);
     };
-    
-    
-    
     
 
     const handleEdit = () => {
