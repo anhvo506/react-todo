@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { TodoContext } from '../context/TodoContext';
-import Toast from './Toast'; 
 
 const Todo = ({ id, title, completed, showToastMessage }) => {
     const [todos, setTodos] = useContext(TodoContext);
